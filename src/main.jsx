@@ -6,6 +6,7 @@ import "./index.css";
 import RootLayout from "./RootLayout";
 import Home from "./pages/Home";
 import Games from "./pages/Games";
+import GameInformation from "./pages/GameInformation";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,16 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       {
         path: "games",
-        element: <Games />,
+        children: [
+          {
+            index: true,
+            element: <Games />,
+          },
+          {
+            path: ":gameId",
+            element: <GameInformation />,
+          },
+        ],
       },
     ],
   },
