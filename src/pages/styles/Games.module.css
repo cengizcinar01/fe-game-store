@@ -38,3 +38,13 @@
 .game_price {
     font-weight: 700;
 }
+
+.price_platform_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.game_platform {
+    display: flex;
+    align-items: center;
+}
