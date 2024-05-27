@@ -4,7 +4,10 @@ import styles from "./styles/Games.module.css";
 import { FaXbox } from "react-icons/fa";
 
 const Games = () => {
-  const [games, setGames] = useState([]);
+  const [allGames, setAllGames] = useState([]);
+  const [filteredGames, setFilteredGames] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const [selectedGenres, setSelectedGenres] = useState([]);
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -12,28 +15,78 @@ const Games = () => {
         const response = await axios.get(
           `${import.meta.env.VITE_API_URL}/games`
         );
-        setGames(response.data);
+        setAllGames(response.data);
+        setFilteredGames(response.data);
       } catch (error) {
         console.error("Fehler beim Abrufen der Spiele", error);
       }
     };
 
+    const fetchGenres = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/genres`
+        );
+        setGenres(response.data);
+      } catch (error) {
+        console.error("Fehler beim Abrufen der Genres", error);
+      }
+    };
+
     fetchGames();
+    fetchGenres();
   }, []);
+
+  useEffect(() => {
+    const filterGames = () => {
+      if (selectedGenres.length === 0) {
+        setFilteredGames(allGames);
+      } else {
+        const filtered = allGames.filter((game) =>
+          selectedGenres.some((genre) => game.genre.includes(genre))
+        );
+        setFilteredGames(filtered);
+      }
+    };
+
+    filterGames();
+  }, [selectedGenres, allGames]);
+
+  const handleGenreChange = (genre) => {
+    const updatedGenres = selectedGenres.includes(genre)
+      ? selectedGenres.filter((g) => g !== genre)
+      : [...selectedGenres, genre];
+    setSelectedGenres(updatedGenres);
+  };
 
   return (
     <>
       <div className={styles.search_box}></div>
       <div className={styles.left_top_filter_game_list_container}>
-        <div className={styles.filter_left}>test</div>
+        <div className={styles.filter_left}>
+          {genres.map((genre) => (
+            <label key={genre}>
+              <input
+                type="checkbox"
+                checked={selectedGenres.includes(genre)}
+                onChange={() => handleGenreChange(genre)}
+              />
+              {genre}
+            </label>
+          ))}
+        </div>
         <div className={styles.game_list_filter_container}>
           <div className={styles.filter_top}>
             <div>test</div>
           </div>
           <div className={styles.games_grid}>
-            {games.map((game) => (
+            {filteredGames.map((game) => (
               <div className={styles.game_container} key={game.id}>
-                <img className={styles.game_img} src={game.main_game_image} alt={game.title} />
+                <img
+                  className={styles.game_img}
+                  src={game.main_game_image}
+                  alt={game.title}
+                />
                 <div className={styles.game_info}>
                   <h2 className={styles.game_title}>{game.title}</h2>
                   <div className={styles.game_details}>
@@ -55,7 +108,6 @@ const Games = () => {
       </div>
     </>
   );
-  
 };
 
 export default Games;
