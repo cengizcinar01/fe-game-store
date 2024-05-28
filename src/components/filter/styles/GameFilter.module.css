@@ -117,3 +117,15 @@
 .genre_checkbox:checked::before {
     opacity: 1;
 }
+
+@media (max-width: 725px) {
+    .filter_left {
+        width: 300px;
+        background-color: rgb(23, 23, 23);
+        height: 100%;
+        position: fixed;
+        z-index: 10;
+        left: 0;
+        top: 0;
+    }
+}
