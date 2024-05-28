@@ -48,16 +48,19 @@ const GameFilter = ({ onGenreChange }) => {
             <option value="price-desc">Preis: Absteigend</option>
           </select>
         </div>
-        {genres.map((genre) => (
-          <label key={genre}>
-            <input
-              type="checkbox"
-              checked={selectedGenres.includes(genre)}
-              onChange={() => handleGenreChange(genre)}
-            />
-            {genre}
-          </label>
-        ))}
+        <div className={styles.genres}>
+          {genres.map((genre) => (
+            <label key={genre} className={styles.genre_label}>
+              <span className={styles.genre_text}>{genre}</span>
+              <input
+                type="checkbox"
+                checked={selectedGenres.includes(genre)}
+                onChange={() => handleGenreChange(genre)}
+                className={styles.genre_checkbox}
+              />
+            </label>
+          ))}
+        </div>
       </div>
     </>
   );

@@ -3,9 +3,10 @@
     background-color: rgb(23, 23, 23);
     margin-right: 20px;
     position: sticky;
+    height: 293px;
     top: 20px;
-    height: 150px;
     border-radius: var(--border-radius);
+    padding: 20px;
 }
 
 .search {
@@ -20,12 +21,11 @@
     align-items: center;
     flex-direction: row;
     gap: 10px;
-    margin: 0 20px;
+    margin-top: 20px;
 }
 
 .search_input {
     display: flex;
-    margin: 20px;
     padding: 12px;
     border: none;
     background-color: rgb(44, 46, 50);
@@ -50,4 +50,29 @@
 .sort_text {
     padding-left: 12px;
     font-size: 13px;
+}
+
+.genres {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.genre_label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.genre_text {
+    flex: 1;
+    margin-right: 8px;
+}
+
+.genre_checkbox {
+    width: 16px;
+    height: 16px;
+    margin: 0;
 }
