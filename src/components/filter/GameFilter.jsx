@@ -39,6 +39,15 @@ const GameFilter = ({ onGenreChange }) => {
             placeholder="Spiel suchen..."
           />
         </div>
+        <div className={styles.select}>
+          <span className={styles.sort_text}>Sortieren:</span>
+          <select id="filter-select" className={styles.select_style}>
+            <option value="gwegweg">A-Z</option>
+            <option value="gwegweg">weg</option>
+            <option value="gwegweg">weg</option>
+            <option value="gwegweg">weg</option>
+          </select>
+        </div>
         {genres.map((genre) => (
           <label key={genre}>
             <input
