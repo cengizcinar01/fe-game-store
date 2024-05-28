@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+body {
+    background-color: rgb(11, 11, 12);
+}
+
+.root_layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main_content {
+    flex: 1;
+}

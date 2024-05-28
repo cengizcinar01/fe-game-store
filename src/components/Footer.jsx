@@ -1,5 +1,13 @@
+import styles from "./styles/Footer.module.css";
+
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <>
+      <footer className={styles.footer}>
+        <p>&copy; 2023 Deine Firma. Alle Rechte vorbehalten.</p>
+      </footer>
+    </>
+  );
 };
 
 export default Footer;

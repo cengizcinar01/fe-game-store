@@ -1,7 +1,7 @@
 .left_top_filter_game_list_container {
     display: flex;
     margin: 20px auto;
-    height: 100vh;
+    height: 100%;
     width: 80vw;
 }
 
