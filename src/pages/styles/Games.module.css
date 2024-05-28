@@ -1,10 +1,5 @@
 .left_filter_game_list_container {
     display: flex;
-    margin: 20px auto;
-    height: 100%;
+    margin: 60px auto;
     width: 80vw;
-}
-
-.game_list_filter_container {
-    flex: 1;
 }

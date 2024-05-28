@@ -39,9 +39,7 @@ const Games = () => {
     <>
       <div className={styles.left_filter_game_list_container}>
         <GameFilter onGenreChange={handleGenreChange} />
-        <div className={styles.game_list_filter_container}>
-          <GameList games={filteredGames} />
-        </div>
+        <GameList games={filteredGames} />
       </div>
     </>
   );
