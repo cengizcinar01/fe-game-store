@@ -1,8 +1,22 @@
 .filter_left {
     width: 300px;
-    background-color: rgb(18, 18, 18);
+    background-color: rgb(23, 23, 23);
     margin-right: 20px;
     position: sticky;
     top: 20px;
     height: 150px;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.search_input {
+    display: flex;
+    margin: 20px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(44, 46, 50);
 }

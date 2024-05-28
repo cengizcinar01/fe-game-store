@@ -32,6 +32,13 @@ const GameFilter = ({ onGenreChange }) => {
   return (
     <>
       <div className={styles.filter_left}>
+        <div className={styles.search}>
+          <input
+            className={styles.search_input}
+            type="text"
+            placeholder="Spiel suchen..."
+          />
+        </div>
         {genres.map((genre) => (
           <label key={genre}>
             <input
