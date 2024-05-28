@@ -37,13 +37,9 @@ const Games = () => {
 
   return (
     <>
-      <div className={styles.search_box}></div>
-      <div className={styles.left_top_filter_game_list_container}>
+      <div className={styles.left_filter_game_list_container}>
         <GenreFilter onGenreChange={handleGenreChange} />
         <div className={styles.game_list_filter_container}>
-          <div className={styles.filter_top}>
-            <div>test</div>
-          </div>
           <GameList games={filteredGames} />
         </div>
       </div>

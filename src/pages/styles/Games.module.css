@@ -1,4 +1,4 @@
-.left_top_filter_game_list_container {
+.left_filter_game_list_container {
     display: flex;
     margin: 20px auto;
     height: 100%;
@@ -7,14 +7,4 @@
 
 .game_list_filter_container {
     flex: 1;
-}
-
-.filter_top {
-    background-color: rgb(18, 18, 18);
-    margin-bottom: 20px;
-    height: 80px;
-}
-
-.search_box {
-    display: none;
 }
