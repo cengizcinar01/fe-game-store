@@ -13,7 +13,11 @@ const GameList = ({ games }) => {
               alt={game.title}
             />
             <div className={styles.game_info}>
-              <h2 className={styles.game_title}>{game.title}</h2>
+              <h2 className={styles.game_title}>
+                {game.title.length > 17
+                  ? `${game.title.slice(0, 17)}...`
+                  : game.title}
+              </h2>
               <div className={styles.game_details}>
                 <span className={styles.game_price}>
                   {Number(game.price).toLocaleString("de-DE", {
