@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <>
       <footer className={styles.footer}>
-        <p>&copy; 2023 Deine Firma. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2024 Game Store. Alle Rechte vorbehalten.</p>
       </footer>
     </>
   );
