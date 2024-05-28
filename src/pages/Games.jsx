@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./styles/Games.module.css";
-import GenreFilter from "../components/filter/GenreFilter";
+import GameFilter from "../components/filter/GameFilter";
 import GameList from "../components/GameList";
 
 const Games = () => {
@@ -38,7 +38,7 @@ const Games = () => {
   return (
     <>
       <div className={styles.left_filter_game_list_container}>
-        <GenreFilter onGenreChange={handleGenreChange} />
+        <GameFilter onGenreChange={handleGenreChange} />
         <div className={styles.game_list_filter_container}>
           <GameList games={filteredGames} />
         </div>

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import styles from "./styles/GenreFilter.module.css";
+import styles from "./styles/GameFilter.module.css";
 
-const GenreFilter = ({ onGenreChange }) => {
+const GameFilter = ({ onGenreChange }) => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
 
@@ -47,4 +47,4 @@ const GenreFilter = ({ onGenreChange }) => {
   );
 };
 
-export default GenreFilter;
+export default GameFilter;
