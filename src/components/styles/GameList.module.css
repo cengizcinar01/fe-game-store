@@ -1,0 +1,47 @@
+.games_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.game_container {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.game_img {
+    width: 100%;
+}
+
+.game_info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 20px;
+    backdrop-filter: blur(15px) saturate(180%);
+    background-color: rgba(133, 133, 133, 0.3);
+    color: white;
+}
+
+.game_title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.game_details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game_price {
+    font-weight: 700;
+}
+
+.game_platform {
+    display: flex;
+    align-items: center;
+}
