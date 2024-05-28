@@ -66,6 +66,12 @@
     cursor: pointer;
 }
 
+.genre_label:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.4);
+}
+
 .genre_text {
     flex: 1;
     padding-left: 12px;
