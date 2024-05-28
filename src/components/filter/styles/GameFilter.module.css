@@ -69,7 +69,7 @@
 .genre_label:hover {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
-    box-shadow: 0 0 6px 3px rgba(51, 51, 51, 0.4);
+    box-shadow: 0 0 6px 3px rgba(51, 51, 51, 0.2);
     transition: 0.3s all;
 }
 

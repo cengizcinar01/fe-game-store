@@ -65,7 +65,7 @@ const GameFilter = ({ onGenreChange }) => {
             ))
           ) : (
             <SkeletonTheme baseColor="#202020" highlightColor="#444">
-              <Skeleton count={5} height={24} />
+              <Skeleton count={5} height={24.44} />
             </SkeletonTheme>
           )}
         </div>
