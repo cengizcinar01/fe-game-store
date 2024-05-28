@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./styles/GameFilter.module.css";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const GameFilter = ({ onGenreChange }) => {
   const [genres, setGenres] = useState([]);
@@ -49,17 +51,23 @@ const GameFilter = ({ onGenreChange }) => {
           </select>
         </div>
         <div className={styles.genres}>
-          {genres.map((genre) => (
-            <label key={genre} className={styles.genre_label}>
-              <span className={styles.genre_text}>{genre}</span>
-              <input
-                type="checkbox"
-                checked={selectedGenres.includes(genre)}
-                onChange={() => handleGenreChange(genre)}
-                className={styles.genre_checkbox}
-              />
-            </label>
-          ))}
+          {genres.length > 0 ? (
+            genres.map((genre) => (
+              <label key={genre} className={styles.genre_label}>
+                <span className={styles.genre_text}>{genre}</span>
+                <input
+                  type="checkbox"
+                  checked={selectedGenres.includes(genre)}
+                  onChange={() => handleGenreChange(genre)}
+                  className={styles.genre_checkbox}
+                />
+              </label>
+            ))
+          ) : (
+            <SkeletonTheme baseColor="#202020" highlightColor="#444">
+              <Skeleton count={5} height={24} />
+            </SkeletonTheme>
+          )}
         </div>
       </div>
     </>
