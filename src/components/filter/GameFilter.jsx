@@ -3,10 +3,12 @@ import axios from "axios";
 import styles from "./styles/GameFilter.module.css";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { FaFilter } from "react-icons/fa";
 
 const GameFilter = ({ onGenreChange }) => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     const fetchGenres = async () => {
@@ -31,9 +33,23 @@ const GameFilter = ({ onGenreChange }) => {
     onGenreChange(updatedGenres);
   };
 
+  const toggleFilter = () => {
+    setIsFilterOpen(!isFilterOpen);
+  };
+
   return (
     <>
-      <div className={styles.filter_left}>
+      {isFilterOpen && (
+        <div className={styles.filter_close} onClick={toggleFilter}></div>
+      )}
+      <div
+        className={`${styles.filter_left} ${
+          isFilterOpen ? styles.open : styles.closed
+        }`}
+      >
+        <div className={styles.filter_icon_mobile} onClick={toggleFilter}>
+          <FaFilter />
+        </div>
         <div className={styles.search}>
           <input
             className={styles.search_input}
