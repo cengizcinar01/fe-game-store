@@ -14,8 +14,8 @@ const GameList = ({ games }) => {
             />
             <div className={styles.game_info}>
               <h2 className={styles.game_title}>
-                {game.title.length > 17
-                  ? `${game.title.slice(0, 17)}...`
+                {game.title.length > 15
+                  ? `${game.title.slice(0, 15)}...`
                   : game.title}
               </h2>
               <div className={styles.game_details}>
