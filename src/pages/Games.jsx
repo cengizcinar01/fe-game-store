@@ -7,6 +7,7 @@ import GameList from "../components/GameList";
 const Games = () => {
   const [allGames, setAllGames] = useState([]);
   const [filteredGames, setFilteredGames] = useState([]);
+  const [selectedGenres, setSelectedGenres] = useState([]);
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -25,6 +26,7 @@ const Games = () => {
   }, []);
 
   const handleGenreChange = (selectedGenres) => {
+    setSelectedGenres(selectedGenres);
     if (selectedGenres.length === 0) {
       setFilteredGames(allGames);
     } else {
@@ -62,7 +64,13 @@ const Games = () => {
         default:
           response = await axios.get(`${import.meta.env.VITE_API_URL}/games`);
       }
-      setFilteredGames(response.data);
+      let sortedGames = response.data;
+      if (selectedGenres.length > 0) {
+        sortedGames = sortedGames.filter((game) =>
+          selectedGenres.some((genre) => game.genre.includes(genre))
+        );
+      }
+      setFilteredGames(sortedGames);
     } catch (error) {
       console.error("Fehler beim Abrufen der sortierten Spiele", error);
     }
@@ -86,6 +94,7 @@ const Games = () => {
         onSortChange={handleSortChange}
         onSearch={handleSearch}
         gameCount={filteredGames.length}
+        selectedGenres={selectedGenres}
       />
       <GameList games={filteredGames} />
     </div>

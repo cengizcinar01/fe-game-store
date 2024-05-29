@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import styles from "./styles/GameFilter.module.css";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
@@ -9,10 +9,15 @@ const GameFilter = ({ onGenreChange, onSortChange, onSearch, gameCount }) => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const searchInputRef = useRef(null);
 
   const handleSortChange = (event) => {
     const selectedSort = event.target.value;
     onSortChange(selectedSort);
+
+    if (searchInputRef.current) {
+      searchInputRef.current.value = "";
+    }
   };
 
   const handleSearch = (event) => {
@@ -44,8 +49,11 @@ const GameFilter = ({ onGenreChange, onSortChange, onSearch, gameCount }) => {
       : [...selectedGenres, genre];
     setSelectedGenres(updatedGenres);
     onGenreChange(updatedGenres);
-  };
 
+    if (searchInputRef.current) {
+      searchInputRef.current.value = "";
+    }
+  };
   const toggleFilter = () => {
     setIsFilterOpen(!isFilterOpen);
   };
@@ -76,6 +84,7 @@ const GameFilter = ({ onGenreChange, onSortChange, onSearch, gameCount }) => {
             type="text"
             placeholder="Spiel suchen..."
             onChange={handleSearch}
+            ref={searchInputRef}
           />
         </div>
         <div className={styles.select}>
