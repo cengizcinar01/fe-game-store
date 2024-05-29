@@ -124,6 +124,16 @@
     opacity: 1;
 }
 
+.game_count {
+    border: 1px solid rgb(77, 77, 77);
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    font-size: 13px;
+}
+
 @media (max-width: 825px) {
     .filter_left {
         height: 100vh;
