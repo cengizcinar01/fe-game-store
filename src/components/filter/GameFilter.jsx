@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "./styles/GameFilter.module.css";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { FaFilter } from "react-icons/fa";
+import { VscSettings } from "react-icons/vsc";
 
 const GameFilter = ({ onGenreChange }) => {
   const [genres, setGenres] = useState([]);
@@ -48,7 +48,7 @@ const GameFilter = ({ onGenreChange }) => {
         }`}
       >
         <div className={styles.filter_icon_mobile} onClick={toggleFilter}>
-          <FaFilter />
+          <VscSettings />
         </div>
         <div className={styles.search}>
           <input
