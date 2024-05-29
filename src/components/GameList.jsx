@@ -2,6 +2,10 @@ import styles from "./styles/GameList.module.css";
 import { FaXbox } from "react-icons/fa";
 
 const GameList = ({ games }) => {
+  if (!games) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       <div className={styles.games_grid}>
