@@ -118,7 +118,7 @@
     opacity: 1;
 }
 
-@media (max-width: 725px) {
+@media (max-width: 825px) {
     .filter_left {
         width: 280px;
         position: fixed;
