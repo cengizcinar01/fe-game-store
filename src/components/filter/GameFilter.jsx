@@ -77,7 +77,7 @@ const GameFilter = ({ onGenreChange }) => {
               </label>
             ))
           ) : (
-            <SkeletonTheme baseColor="#202020" highlightColor="#444">
+            <SkeletonTheme baseColor="#202020" highlightColor="#333">
               <Skeleton count={5} height={24.44} />
             </SkeletonTheme>
           )}
