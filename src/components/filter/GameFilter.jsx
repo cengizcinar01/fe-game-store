@@ -47,9 +47,6 @@ const GameFilter = ({ onGenreChange }) => {
           isFilterOpen ? styles.open : undefined
         }`}
       >
-        <div className={styles.filter_icon_mobile} onClick={toggleFilter}>
-          <VscSettings />
-        </div>
         <div className={styles.search}>
           <input
             className={styles.search_input}
@@ -85,6 +82,9 @@ const GameFilter = ({ onGenreChange }) => {
             </SkeletonTheme>
           )}
         </div>
+      </div>
+      <div className={styles.filter_icon_mobile} onClick={toggleFilter}>
+        <VscSettings />
       </div>
     </>
   );
