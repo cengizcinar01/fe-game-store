@@ -35,13 +35,60 @@ const Games = () => {
     }
   };
 
+  const handleSortChange = async (selectedSort) => {
+    try {
+      let response;
+      switch (selectedSort) {
+        case "title-asc":
+          response = await axios.get(
+            `${import.meta.env.VITE_API_URL}/games/sort/title/asc`
+          );
+          break;
+        case "title-desc":
+          response = await axios.get(
+            `${import.meta.env.VITE_API_URL}/games/sort/title/desc`
+          );
+          break;
+        case "price-asc":
+          response = await axios.get(
+            `${import.meta.env.VITE_API_URL}/games/sort/price/asc`
+          );
+          break;
+        case "price-desc":
+          response = await axios.get(
+            `${import.meta.env.VITE_API_URL}/games/sort/price/desc`
+          );
+          break;
+        default:
+          response = await axios.get(`${import.meta.env.VITE_API_URL}/games`);
+      }
+      setFilteredGames(response.data);
+    } catch (error) {
+      console.error("Fehler beim Abrufen der sortierten Spiele", error);
+    }
+  };
+
+  const handleSearch = async (searchTerm) => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/games/search?title=${searchTerm}`
+      );
+      setFilteredGames(response.data);
+    } catch (error) {
+      console.error("Fehler beim Suchen der Spiele", error);
+    }
+  };
+
   return (
-    <>
-      <div className={styles.left_filter_game_list_container}>
-        <GameFilter onGenreChange={handleGenreChange} />
-        <GameList games={filteredGames} />
-      </div>
-    </>
+    <div className={styles.left_filter_game_list_container}>
+      <GameFilter
+        onGenreChange={handleGenreChange}
+        onSortChange={handleSortChange}
+        onSearch={handleSearch}
+        gameCount={filteredGames.length}
+      />
+      <GameList games={filteredGames} />
+    </div>
   );
 };
 
