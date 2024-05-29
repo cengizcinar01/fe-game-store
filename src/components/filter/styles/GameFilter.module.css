@@ -120,12 +120,21 @@
 
 @media (max-width: 725px) {
     .filter_left {
-        width: 300px;
-        background-color: rgb(23, 23, 23);
-        height: 100%;
+        width: 280px;
         position: fixed;
         z-index: 10;
         left: 0;
         top: 0;
+        border-radius: 0;
+    }
+
+    .sort_text {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .filter_left {
+        width: 230px;
     }
 }
