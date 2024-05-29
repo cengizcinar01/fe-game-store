@@ -44,7 +44,7 @@ const GameFilter = ({ onGenreChange }) => {
       )}
       <div
         className={`${styles.filter_left} ${
-          isFilterOpen ? styles.open : styles.closed
+          isFilterOpen ? styles.open : undefined
         }`}
       >
         <div className={styles.filter_icon_mobile} onClick={toggleFilter}>
