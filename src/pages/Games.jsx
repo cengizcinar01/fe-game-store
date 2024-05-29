@@ -51,17 +51,19 @@ const Games = () => {
     <>
       <div className={styles.left_filter_game_list_container}>
         <GameFilter onGenreChange={handleGenreChange} />
-        <GameList games={filteredGames} />
-        <div className={styles.pagination}>
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index}
-              onClick={() => handlePageChange(index + 1)}
-              className={currentPage === index + 1 ? styles.active : ""}
-            >
-              {index + 1}
-            </button>
-          ))}
+        <div className={styles.game_list_pagination_container}>
+          <GameList games={filteredGames} />
+          <div className={styles.pagination}>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageChange(index + 1)}
+                className={currentPage === index + 1 ? styles.active : ""}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </>
