@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import styles from "./styles/Games.module.css";
 import GameFilter from "../components/filter/GameFilter";
@@ -7,8 +8,12 @@ import GameList from "../components/GameList";
 const Games = () => {
   const [allGames, setAllGames] = useState([]);
   const [filteredGames, setFilteredGames] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const currentPage = parseInt(searchParams.get("page")) || 1;
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -39,7 +44,7 @@ const Games = () => {
   };
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    navigate(`/games?page=${page}`);
   };
 
   return (
