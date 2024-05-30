@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import styles from "../styles/pages/GameDetails.module.css";
 
@@ -37,7 +38,9 @@ const GameDetails = () => {
   return (
     <>
       <div className={styles.breadcrumb_container}>
-        <span>Games / Red Dead Redemption 2</span>
+        <span>
+          <Link to="/games">Games</Link> / {game.title}
+        </span>
       </div>
       <div className={styles.container}>
         <div className={styles.imageContainer}>
