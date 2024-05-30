@@ -1,0 +1,144 @@
+.breadcrumb_container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60vw;
+    margin: 30px auto;
+    padding: 0 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    background-color: var(--first-color);
+    border-radius: var(--border-radius);
+    width: 60vw;
+    height: auto;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.image {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.genre {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.description {
+    margin-bottom: 2rem;
+    line-height: 1.5rem;
+    padding-right: 4rem;
+}
+
+.xbox_icon {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart_btn {
+    width: 100%;
+    max-width: 250px;
+    padding: 10px;
+    background-color: rgb(40, 40, 40);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart_btn:hover {
+    background-color: rgb(60, 60, 60);
+}
+
+@media (max-width: 1440px) {
+    .breadcrumb_container {
+        width: 70vw;
+    }
+
+    .container {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 1260px) {
+    .breadcrumb_container {
+        width: 80vw;
+    }
+
+    .container {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 1000px) {
+    .breadcrumb_container {
+        width: 85vw;
+    }
+
+    .container {
+        width: 85vw;
+    }
+}
+
+@media (max-width: 860px) {
+    .breadcrumb_container {
+        width: 90vw;
+    }
+
+    .container {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 700px) {
+    .breadcrumb_container {
+        width: 90vw;
+    }
+
+    .container {
+        width: 90vw;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .description {
+        padding-right: 0;
+    }
+
+    .cart_btn {
+        margin: 0 auto;
+    }
+
+    .image {
+        max-width: 70%;
+    }
+}

@@ -5,7 +5,7 @@ import { VscSettings } from "react-icons/vsc";
 import { GameFilterLoader } from "./Loader";
 
 const GameFilter = () => {
-  const [genres, setGenres] = useState(null);
+  const [genres, setGenres] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -17,9 +17,8 @@ const GameFilter = () => {
           `${import.meta.env.VITE_API_URL}/genres`
         );
         setGenres(response.data);
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
+
+        setLoading(false);
       } catch (error) {
         setError(error);
         setLoading(false);

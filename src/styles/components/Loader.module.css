@@ -1,0 +1,9 @@
+.loader {
+    height: 464px;
+}
+
+@media (max-width: 700px) {
+    .loader {
+        height: 791px;
+    }
+}

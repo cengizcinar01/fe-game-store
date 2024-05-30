@@ -1,5 +1,7 @@
 :root {
     --border-radius: 5px;
+    --first-color: rgb(23, 23, 23);
+    --second-color: rgb(29, 155, 240);
 }
 
 * {
@@ -12,29 +14,6 @@
 
 body {
     background-color: rgb(11, 11, 12);
-    --sb-track-color: #232E33;
-    --sb-thumb-color: #325065;
-    --sb-size: 8px;
-}
-
-body::-webkit-scrollbar {
-    width: var(--sb-size)
-}
-
-body::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-    border-radius: 3px;
-}
-
-body::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 3px;
-}
-
-@supports not selector(::-webkit-scrollbar) {
-    body {
-        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
-    }
 }
 
 .root_layout {
@@ -44,6 +23,5 @@ body::-webkit-scrollbar-thumb {
 }
 
 .main_content {
-    padding-left: calc(100vw - 100%);
     flex: 1;
 }

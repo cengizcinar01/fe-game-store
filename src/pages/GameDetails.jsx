@@ -1,10 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
+import styles from "../styles/pages/GameDetails.module.css";
+import { FaXbox } from "react-icons/fa";
+import { GameDetailsLoader } from "../components/Loader";
 
 const GameDetails = () => {
   const { gameId } = useParams();
-  const [game, setGame] = useState(null);
+  const [game, setGame] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -26,7 +30,17 @@ const GameDetails = () => {
   }, [gameId]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        <div
+          className={styles.breadcrumb_container}
+          style={{ marginBottom: "3.1rem" }}
+        ></div>
+        <div className={styles.container} style={{ padding: "0" }}>
+          <GameDetailsLoader />
+        </div>
+      </>
+    );
   }
 
   if (error) {
@@ -35,7 +49,29 @@ const GameDetails = () => {
 
   return (
     <>
-      <div>{game.title}</div>
+      <div className={styles.breadcrumb_container}>
+        <span>
+          <Link to="/games">Games</Link> / {game.title}
+        </span>
+      </div>
+      <div className={styles.container}>
+        <img
+          src={game.main_game_image}
+          alt={game.title}
+          className={styles.image}
+        />
+        <div className={styles.details}>
+          <h1 className={styles.title}>{game.title}</h1>
+          <p className={styles.genre}>{game.genre}</p>
+          <p className={styles.price}>{game.price} €</p>
+          <p className={styles.description}>{game.description}</p>
+          <div className={styles.xbox_icon}>
+            Verfügbar für
+            <FaXbox />
+          </div>
+          <button className={styles.cart_btn}>In den Warenkorb</button>
+        </div>
+      </div>
     </>
   );
 };

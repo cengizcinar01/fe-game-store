@@ -2,12 +2,18 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    width: 100%;
 }
 
 .game_container {
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.game_container:hover {
+    transform: translate(0, -6px);
 }
 
 .game_img {

@@ -30,8 +30,33 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+const requiredEnvVars = ["VITE_API_URL"];
+
+const missingEnvVars = requiredEnvVars.filter(
+  (envVar) => !import.meta.env[envVar]
 );
+
+if (missingEnvVars.length > 0) {
+  console.error(`Fehlende Umgebungsvariablen: ${missingEnvVars.join(", ")}`);
+
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <div>
+      <h1>Fehlende Umgebungsvariablen</h1>
+      <p>
+        Bitte stelle sicher, dass die folgenden Umgebungsvariablen in der
+        .env-Datei definiert sind:
+      </p>
+      <ul>
+        {missingEnvVars.map((envVar) => (
+          <li key={envVar}>{envVar}</li>
+        ))}
+      </ul>
+    </div>
+  );
+} else {
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  );
+}

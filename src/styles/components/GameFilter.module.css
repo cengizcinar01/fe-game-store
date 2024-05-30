@@ -99,8 +99,8 @@
 }
 
 .genre_checkbox:checked {
-    background-color: rgb(29, 155, 240);
-    border-color: rgb(29, 155, 240);
+    background-color: var(--second-color);
+    border-color: var(--second-color);
 }
 
 .genre_checkbox:focus {
