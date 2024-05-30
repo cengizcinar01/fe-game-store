@@ -36,6 +36,9 @@ const GameDetails = () => {
 
   return (
     <>
+      <div className={styles.breadcrumb_container}>
+        <span>Games / Red Dead Redemption 2</span>
+      </div>
       <div className={styles.container}>
         <div className={styles.imageContainer}>
           <img

@@ -1,8 +1,20 @@
+.breadcrumb_container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 1000px;
+    margin: 30px auto;
+}
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    background-color: var(--first-color);
+    border-radius: var(--border-radius);
+    width: 1000px;
+    margin: 0 auto;
 }
 
 .imageContainer {
@@ -38,17 +50,4 @@
 .price {
     font-size: 1.5rem;
     font-weight: bold;
-}
-
-.loading {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-top: 2rem;
-}
-
-.error {
-    text-align: center;
-    font-size: 1.2rem;
-    color: red;
-    margin-top: 2rem;
 }
