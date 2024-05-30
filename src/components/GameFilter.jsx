@@ -17,9 +17,8 @@ const GameFilter = () => {
           `${import.meta.env.VITE_API_URL}/genres`
         );
         setGenres(response.data);
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
+
+        setLoading(false);
       } catch (error) {
         setError(error);
         setLoading(false);
