@@ -1,6 +1,7 @@
 :root {
     --border-radius: 5px;
     --first-color: rgb(23, 23, 23);
+    --second-color: rgb(29, 155, 240);
 }
 
 * {

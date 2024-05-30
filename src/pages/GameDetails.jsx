@@ -53,6 +53,7 @@ const GameDetails = () => {
           <p className={styles.genre}>{game.genre}</p>
           <p className={styles.price}>{game.price} €</p>
           <p className={styles.description}>{game.description}</p>
+          <button className={styles.cart_btn}>In den Warenkorb</button>
         </div>
       </div>
     </>
