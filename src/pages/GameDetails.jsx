@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styles from "../styles/pages/GameDetails.module.css";
+import { GameDetailsLoader } from "../components/Loader";
 
 const GameDetails = () => {
   const { gameId } = useParams();
@@ -28,7 +29,17 @@ const GameDetails = () => {
   }, [gameId]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        <div
+          className={styles.breadcrumb_container}
+          style={{ marginBottom: "3.1rem" }}
+        ></div>
+        <div className={styles.container} style={{ padding: "0" }}>
+          <GameDetailsLoader />
+        </div>
+      </>
+    );
   }
 
   if (error) {

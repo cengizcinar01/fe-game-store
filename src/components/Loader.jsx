@@ -40,3 +40,20 @@ export const GameListLoader = () => {
     </>
   );
 };
+
+export const GameDetailsLoader = () => {
+  return (
+    <>
+      <ContentLoader
+        speed={2}
+        width="100%"
+        height="100%"
+        backgroundColor={loaderBackgroundColor}
+        foregroundColor={loaderForegroundColor}
+        backgroundOpacity={0}
+      >
+        <rect x="0" y="0" rx="0" ry="0" width="100% " height="100%" />{" "}
+      </ContentLoader>
+    </>
+  );
+};
