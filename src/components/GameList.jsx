@@ -1,7 +1,38 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import styles from "../styles/components/GameList.module.css";
 import { FaXbox } from "react-icons/fa";
 
-const GameList = ({ games }) => {
+const GameList = () => {
+  const [games, setGames] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchAllGames = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/games`
+        );
+        setGames(response.data);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    fetchAllGames();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <>
       <div className={styles.games_grid}>

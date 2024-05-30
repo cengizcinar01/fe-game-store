@@ -9,7 +9,7 @@ const GameDetails = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchGame = async () => {
+    const fetchOneGame = async () => {
       try {
         const response = await axios.get(
           `${import.meta.env.VITE_API_URL}/games/${gameId}`
@@ -22,7 +22,7 @@ const GameDetails = () => {
       }
     };
 
-    fetchGame();
+    fetchOneGame();
   }, [gameId]);
 
   if (loading) {
