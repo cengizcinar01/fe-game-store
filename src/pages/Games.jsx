@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import styles from "./styles/Games.module.css";
-import GameFilter from "../components/filter/GameFilter";
+import styles from "../styles/pages/Games.module.css";
+import GameFilter from "../components/GameFilter";
 import GameList from "../components/GameList";
 
 const Games = () => {

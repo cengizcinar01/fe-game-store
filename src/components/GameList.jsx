@@ -1,4 +1,4 @@
-import styles from "./styles/GameList.module.css";
+import styles from "../styles/components/GameList.module.css";
 import { FaXbox } from "react-icons/fa";
 
 const GameList = ({ games }) => {

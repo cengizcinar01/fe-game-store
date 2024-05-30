@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import styles from "./styles/GameFilter.module.css";
+import styles from "../styles/components/GameFilter.module.css";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { VscSettings } from "react-icons/vsc";
