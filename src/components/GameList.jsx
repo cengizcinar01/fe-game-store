@@ -4,7 +4,7 @@ import styles from "../styles/components/GameList.module.css";
 import { FaXbox } from "react-icons/fa";
 
 const GameList = () => {
-  const [games, setGames] = useState(null);
+  const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

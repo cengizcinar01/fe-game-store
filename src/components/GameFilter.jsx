@@ -5,7 +5,7 @@ import { VscSettings } from "react-icons/vsc";
 import { GameFilterLoader } from "./Loader";
 
 const GameFilter = () => {
-  const [genres, setGenres] = useState(null);
+  const [genres, setGenres] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
