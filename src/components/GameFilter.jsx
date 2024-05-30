@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/components/GameFilter.module.css";
 import { VscSettings } from "react-icons/vsc";
+import { GameFilterLoader } from "./Loader";
 
 const GameFilter = () => {
   const [genres, setGenres] = useState(null);
@@ -16,8 +17,9 @@ const GameFilter = () => {
           `${import.meta.env.VITE_API_URL}/genres`
         );
         setGenres(response.data);
-        console.log(response);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       } catch (error) {
         setError(error);
         setLoading(false);
@@ -27,17 +29,39 @@ const GameFilter = () => {
     fetchGenres();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
   const toggleFilter = () => {
     setIsFilterOpen(!isFilterOpen);
   };
+
+  if (loading) {
+    return (
+      <>
+        {isFilterOpen && (
+          <div className={styles.filter_close} onClick={toggleFilter}></div>
+        )}
+        <div
+          className={`${styles.filter_left} ${
+            isFilterOpen ? styles.open : undefined
+          }`}
+        >
+          <GameFilterLoader />
+        </div>
+        <div className={styles.filter_icon_mobile} onClick={toggleFilter}>
+          <VscSettings />
+        </div>
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <div className={styles.filter_left}>
+          <div>Error: {error.message}</div>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
