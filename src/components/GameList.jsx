@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "../styles/components/GameList.module.css";
 import { FaXbox } from "react-icons/fa";
+import { GameListLoader } from "./Loader";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
@@ -27,7 +28,15 @@ const GameList = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        <div className={styles.games_grid}>
+          {Array.from({ length: 8 }).map((_, index) => (
+            <GameListLoader key={index} />
+          ))}
+        </div>
+      </>
+    );
   }
 
   if (error) {

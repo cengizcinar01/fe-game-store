@@ -22,3 +22,18 @@ export const GameFilterLoader = () => {
     </>
   );
 };
+
+export const GameListLoader = () => {
+  return (
+    <>
+      <ContentLoader
+        speed={2}
+        viewBox="0 0 250 380"
+        backgroundColor="#222"
+        foregroundColor="#333"
+      >
+        <rect x="0" y="0" rx="5" ry="5" width="100% " height="100%" />{" "}
+      </ContentLoader>
+    </>
+  );
+};
