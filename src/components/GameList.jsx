@@ -17,7 +17,7 @@ const GameList = () => {
           `${import.meta.env.VITE_API_URL}/games`
         );
         setGames(response.data);
-        setLoading(true);
+        setLoading(false);
       } catch (error) {
         setError(error);
         setLoading(false);

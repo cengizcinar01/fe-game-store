@@ -9,6 +9,11 @@
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.game_container:hover {
+    box-shadow: 0 0 0 2.5px rgb(29, 155, 240);
 }
 
 .game_img {
