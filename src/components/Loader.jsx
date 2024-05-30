@@ -1,13 +1,16 @@
 import ContentLoader from "react-content-loader";
 
+let loaderBackgroundColor = "rgb(23, 23, 23)";
+let loaderForegroundColor = "rgb(32, 32, 32)";
+
 export const GameFilterLoader = () => {
   return (
     <>
       <ContentLoader
         speed={2}
         viewBox="0 0 250 310"
-        backgroundColor="#222"
-        foregroundColor="#333"
+        backgroundColor={loaderBackgroundColor}
+        foregroundColor={loaderForegroundColor}
       >
         <rect x="0" y="0" rx="5" ry="5" width="100%" height="40" />
         <rect x="0" y="60" rx="5" ry="5" width="30%" height="40" />
@@ -29,8 +32,8 @@ export const GameListLoader = () => {
       <ContentLoader
         speed={2}
         viewBox="0 0 250 380"
-        backgroundColor="#222"
-        foregroundColor="#333"
+        backgroundColor={loaderBackgroundColor}
+        foregroundColor={loaderForegroundColor}
       >
         <rect x="0" y="0" rx="5" ry="5" width="100% " height="100%" />{" "}
       </ContentLoader>
