@@ -8,28 +8,30 @@
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding: 2rem;
     background-color: var(--first-color);
     border-radius: var(--border-radius);
     width: 1000px;
+    height: 500px;
     margin: 0 auto;
-}
-
-.imageContainer {
-    flex: 1;
-    margin-right: 2rem;
+    gap: 40px;
 }
 
 .image {
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 8px;
 }
 
 .details {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     flex: 1;
+    height: 100%;
 }
 
 .title {
@@ -43,11 +45,12 @@
     margin-bottom: 1rem;
 }
 
-.description {
-    margin-bottom: 1rem;
-}
-
 .price {
     font-size: 1.5rem;
     font-weight: bold;
+    margin-bottom: 3rem;
+}
+
+.description {
+    margin-bottom: 2rem;
 }
