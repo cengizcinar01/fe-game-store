@@ -1,0 +1,17 @@
+.left_filter_game_list_container {
+    display: flex;
+    margin: 60px auto;
+    width: 80vw;
+}
+
+@media (max-width: 1570px) {
+    .left_filter_game_list_container {
+        width: 85vw;
+    }
+}
+
+@media (max-width: 1325px) {
+    .left_filter_game_list_container {
+        width: 90vw;
+    }
+}
