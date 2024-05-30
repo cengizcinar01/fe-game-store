@@ -38,7 +38,11 @@ const GameList = () => {
     <>
       <div className={styles.games_grid}>
         {games.map((game) => (
-          <Link to={`/games/${game.id}`}>
+          <Link
+            to={`/games/${game.id}/${game.title
+              .replace(/[^a-zA-Z0-9]/g, "")
+              .replace(/\s+/g, "-")}`}
+          >
             <div className={styles.game_container} key={game.id}>
               <img
                 className={styles.game_img}
