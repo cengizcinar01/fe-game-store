@@ -20,20 +20,26 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={styles.navbar_right}>
-        <FaShoppingCart className={styles.navbar_cart_icon} />
-        <FaUserCircle className={styles.navbar_user_icon} />
-        <FaBars className={styles.navbar_menu_icon} onClick={toggleMenu} />
-      </div>
-      {menuOpen && (
-        <div className={styles.navbar_menu}>
-          <Link to="/" className={styles.navbar_link} onClick={toggleMenu}>
-            Home
-          </Link>
-          <Link to="/games" className={styles.navbar_link} onClick={toggleMenu}>
-            Games
-          </Link>
+        <div className={styles.navbar_right_icons}>
+          <FaShoppingCart className={styles.navbar_cart_icon} />
+          <FaUserCircle className={styles.navbar_user_icon} />
+          <FaBars className={styles.navbar_menu_icon} onClick={toggleMenu} />
         </div>
-      )}
+        {menuOpen && (
+          <div className={styles.navbar_menu}>
+            <Link to="/" className={styles.navbar_link} onClick={toggleMenu}>
+              Home
+            </Link>
+            <Link
+              to="/games"
+              className={styles.navbar_link}
+              onClick={toggleMenu}
+            >
+              Games
+            </Link>
+          </div>
+        )}
+      </div>
     </nav>
   );
 };
