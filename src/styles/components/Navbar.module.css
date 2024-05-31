@@ -68,10 +68,7 @@
 }
 
 @media (max-width: 825px) {
-    .navbar_logo {
-        justify-content: center;
-        width: 100%;
-        display: flex;
-        align-items: center;
+    .navbar_container {
+        justify-content: space-between;
     }
 }
