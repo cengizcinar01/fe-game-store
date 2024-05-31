@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/components/GameFilter.module.css";
-import { VscSettings } from "react-icons/vsc";
 import { GameFilterLoader } from "./Loader";
 
-const GameFilter = () => {
+const GameFilter = ({ isFilterOpen, toggleFilter }) => {
   const [genres, setGenres] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     const fetchGenres = async () => {
@@ -28,10 +26,6 @@ const GameFilter = () => {
     fetchGenres();
   }, []);
 
-  const toggleFilter = () => {
-    setIsFilterOpen(!isFilterOpen);
-  };
-
   if (loading) {
     return (
       <>
@@ -44,9 +38,6 @@ const GameFilter = () => {
           }`}
         >
           <GameFilterLoader />
-        </div>
-        <div className={styles.filter_icon_mobile} onClick={toggleFilter}>
-          <VscSettings />
         </div>
       </>
     );
@@ -97,9 +88,6 @@ const GameFilter = () => {
           ))}
           <p className={styles.game_count}>X Spiele gefunden</p>
         </div>
-      </div>
-      <div className={styles.filter_icon_mobile} onClick={toggleFilter}>
-        <VscSettings />
       </div>
     </>
   );

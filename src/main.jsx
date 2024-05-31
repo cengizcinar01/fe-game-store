@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import { AuthProvider } from "./AuthProvider";
 import RootLayout from "./RootLayout";
 import Home from "./pages/Home";
 import Games from "./pages/Games";
 import GameDetails from "./pages/GameDetails";
+import Login from "./pages/Login";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       {
         path: "games",
+        element: <ProtectedRoute />,
         children: [
           {
             index: true,
@@ -26,37 +29,15 @@ const router = createBrowserRouter([
           },
         ],
       },
+      { path: "login", element: <Login /> },
     ],
   },
 ]);
 
-const requiredEnvVars = ["VITE_API_URL"];
-
-const missingEnvVars = requiredEnvVars.filter(
-  (envVar) => !import.meta.env[envVar]
-);
-
-if (missingEnvVars.length > 0) {
-  console.error(`Fehlende Umgebungsvariablen: ${missingEnvVars.join(", ")}`);
-
-  ReactDOM.createRoot(document.getElementById("root")).render(
-    <div>
-      <h1>Fehlende Umgebungsvariablen</h1>
-      <p>
-        Bitte stelle sicher, dass die folgenden Umgebungsvariablen in der
-        .env-Datei definiert sind:
-      </p>
-      <ul>
-        {missingEnvVars.map((envVar) => (
-          <li key={envVar}>{envVar}</li>
-        ))}
-      </ul>
-    </div>
-  );
-} else {
-  ReactDOM.createRoot(document.getElementById("root")).render(
-    <React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <AuthProvider>
       <RouterProvider router={router} />
-    </React.StrictMode>
-  );
-}
+    </AuthProvider>
+  </React.StrictMode>
+);

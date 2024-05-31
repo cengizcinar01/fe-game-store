@@ -1,0 +1,55 @@
+.navbar_container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    height: 60px;
+    background-color: rgba(23, 23, 23, 0.80);
+    position: fixed;
+    z-index: 100;
+    backdrop-filter: blur(10px) saturate(10%);
+    padding: 0 20px;
+}
+
+.navbar_left {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.navbar_logo {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar_link {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.navbar_right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar_user_icon,
+.navbar_cart_icon,
+.navbar_game_icon {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}

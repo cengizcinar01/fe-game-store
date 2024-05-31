@@ -71,3 +71,30 @@
         width: 100%;
     }
 }
+
+@media (max-width: 825px) {
+    .filter_icon_mobile_container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .filter_icon_mobile {
+        position: absolute;
+        top: -70px;
+        right: 0;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 11;
+        background-color: rgb(23, 23, 23);
+        padding: 6px 12px;
+        display: flex;
+        border-radius: var(--border-radius);
+    }
+}
+
+@media (min-width: 826px) {
+    .filter_icon_mobile {
+        display: none;
+    }
+}
