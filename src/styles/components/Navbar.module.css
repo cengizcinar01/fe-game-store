@@ -19,12 +19,12 @@
 
 .navbar_logo {
     color: white;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 18px;
     text-decoration: none;
+    font-weight: bold;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 
 .navbar_center {
@@ -35,7 +35,7 @@
 
 .navbar_link {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: none;
     margin: 0 15px;
 }
