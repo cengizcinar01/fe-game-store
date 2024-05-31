@@ -3,9 +3,10 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "../styles/components/GameList.module.css";
 import { FaXbox } from "react-icons/fa";
+import { VscSettings } from "react-icons/vsc";
 import { GameListLoader } from "./Loader";
 
-const GameList = () => {
+const GameList = ({ toggleFilter }) => {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -51,37 +52,42 @@ const GameList = () => {
 
   return (
     <>
-      <div className={styles.games_grid}>
-        {games.map((game) => (
-          <Link to={`/games/${game.id}`}>
-            <div className={styles.game_container} key={game.id}>
-              <img
-                className={styles.game_img}
-                src={game.main_game_image}
-                alt={game.title}
-              />
-              <div className={styles.game_info}>
-                <h2 className={styles.game_title}>
-                  {game.title.length > 15
-                    ? `${game.title.slice(0, 15)}...`
-                    : game.title}
-                </h2>
-                <div className={styles.game_details}>
-                  <span className={styles.game_price}>
-                    {Number(game.price).toLocaleString("de-DE", {
-                      style: "currency",
-                      currency: "EUR",
-                    })}
-                  </span>
-                  <div className={styles.game_platform}>
-                    <FaXbox />
+      <div className={styles.filter_icon_mobile_container}>
+        <div className={styles.filter_icon_mobile} onClick={toggleFilter}>
+          <VscSettings />
+        </div>
+        <div className={styles.games_grid}>
+          {games.map((game) => (
+            <Link to={`/games/${game.id}`}>
+              <div className={styles.game_container} key={game.id}>
+                <img
+                  className={styles.game_img}
+                  src={game.main_game_image}
+                  alt={game.title}
+                />
+                <div className={styles.game_info}>
+                  <h2 className={styles.game_title}>
+                    {game.title.length > 15
+                      ? `${game.title.slice(0, 15)}...`
+                      : game.title}
+                  </h2>
+                  <div className={styles.game_details}>
+                    <span className={styles.game_price}>
+                      {Number(game.price).toLocaleString("de-DE", {
+                        style: "currency",
+                        currency: "EUR",
+                      })}
+                    </span>
+                    <div className={styles.game_platform}>
+                      <FaXbox />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+            </Link>
+          ))}
+        </div>
+      </div>  
     </>
   );
 };
