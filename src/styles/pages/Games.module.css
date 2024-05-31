@@ -1,6 +1,6 @@
 .left_filter_game_list_container {
     display: flex;
-    margin: 60px auto;
+    margin: 160px 0 0 0;
     width: 80vw;
 }
 
@@ -13,5 +13,11 @@
 @media (max-width: 1325px) {
     .left_filter_game_list_container {
         width: 90vw;
+    }
+}
+
+@media (max-width: 825px) {
+    .left_filter_game_list_container {
+        margin: 180px 0 0 0;
     }
 }
