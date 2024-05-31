@@ -2,14 +2,33 @@ import { Link } from "react-router-dom";
 import { FaUserCircle, FaShoppingCart, FaBars } from "react-icons/fa";
 import { IoGameController } from "react-icons/io5";
 import styles from "../styles/components/Navbar.module.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
 
   return (
     <nav className={styles.navbar_container}>
@@ -26,7 +45,7 @@ const Navbar = () => {
           <FaBars className={styles.navbar_menu_icon} onClick={toggleMenu} />
         </div>
         {menuOpen && (
-          <div className={styles.navbar_menu}>
+          <div className={styles.navbar_menu} ref={menuRef}>
             <Link to="/" className={styles.navbar_link} onClick={toggleMenu}>
               Home
             </Link>
