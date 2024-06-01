@@ -14,6 +14,7 @@ import Games from "./pages/Games";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import GameDetails from "./pages/GameDetails";
+import ShoppingCart from "./pages/ShoppingCart";
 
 import { store } from "./redux/store";
 
@@ -67,6 +68,15 @@ const router = createBrowserRouter([
           {
             path: ":gameId",
             element: <GameDetails />,
+          },
+        ],
+      },
+      {
+        path: "cart",
+        children: [
+          {
+            index: true,
+            element: <ShoppingCart />,
           },
         ],
       },
