@@ -15,9 +15,13 @@ const GameList = ({ toggleFilter }) => {
     const fetchAllGames = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/games`
+          `${import.meta.env.VITE_API_URL}/api/get-games`
         );
-        setGames(response.data);
+        if (response.data.success) {
+          setGames(response.data.games);
+        } else {
+          setError(new Error("Failed to fetch games"));
+        }
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -58,8 +62,8 @@ const GameList = ({ toggleFilter }) => {
         </div>
         <div className={styles.games_grid}>
           {games.map((game) => (
-            <Link to={`/games/${game.id}`}>
-              <div className={styles.game_container} key={game.id}>
+            <Link to={`/games/${game.game_id}`} key={game.game_id}>
+              <div className={styles.game_container}>
                 <img
                   className={styles.game_img}
                   src={game.main_game_image}
@@ -87,7 +91,7 @@ const GameList = ({ toggleFilter }) => {
             </Link>
           ))}
         </div>
-      </div>  
+      </div>
     </>
   );
 };
