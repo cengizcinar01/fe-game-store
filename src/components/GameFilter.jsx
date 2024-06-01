@@ -12,10 +12,9 @@ const GameFilter = ({ isFilterOpen, toggleFilter }) => {
     const fetchGenres = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/genres`
+          `${import.meta.env.VITE_API_URL}/api/get-games`
         );
-        setGenres(response.data);
-
+        setGenres(response.data.genres);
         setLoading(false);
       } catch (error) {
         setError(error);

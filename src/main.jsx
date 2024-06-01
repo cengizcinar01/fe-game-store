@@ -1,13 +1,32 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { AuthProvider } from "./AuthProvider";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+
 import RootLayout from "./RootLayout";
 import Home from "./pages/Home";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import { useSelector } from "react-redux";
+
 import Games from "./pages/Games";
 import GameDetails from "./pages/GameDetails";
-import Login from "./pages/Login";
-import ProtectedRoute from "./ProtectedRoute";
+
+export const PrivateRoutes = () => {
+  const { isAuth } = useSelector((state) => state.auth);
+  return <>{isAuth ? <Outlet /> : <Navigate to="/login" />}</>;
+};
+
+export const RestrictedRoutes = () => {
+  const { isAuth } = useSelector((state) => state.auth);
+  return <>{!isAuth ? <Outlet /> : <Navigate to="/dashboard" />}</>;
+};
 
 const router = createBrowserRouter([
   {
@@ -16,8 +35,29 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       {
+        element: <PrivateRoutes />,
+        children: [
+          {
+            path: "dashboard",
+            element: <Dashboard />,
+          },
+        ],
+      },
+      {
+        element: <RestrictedRoutes />,
+        children: [
+          {
+            path: "register",
+            element: <Register />,
+          },
+          {
+            path: "login",
+            element: <Login />,
+          },
+        ],
+      },
+      {
         path: "games",
-        element: <ProtectedRoute />,
         children: [
           {
             index: true,
@@ -29,15 +69,12 @@ const router = createBrowserRouter([
           },
         ],
       },
-      { path: "login", element: <Login /> },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );

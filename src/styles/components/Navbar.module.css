@@ -27,12 +27,6 @@
     gap: 10px;
 }
 
-.navbar_center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .navbar_link {
     color: white;
     font-size: 16px;
@@ -42,14 +36,44 @@
 
 .navbar_right {
     display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.navbar_right_icons {
+    display: flex;
     align-items: center;
     gap: 20px;
 }
 
 .navbar_user_icon,
 .navbar_cart_icon,
-.navbar_game_icon {
+.navbar_game_icon,
+.navbar_menu_icon {
     color: white;
     font-size: 20px;
     cursor: pointer;
+}
+
+.navbar_menu {
+    top: 260%;
+    position: absolute;
+    width: 100%;
+    background-color: rgba(23, 23, 23, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    z-index: 101;
+    border-radius: var(--border-radius);
+}
+
+.navbar_menu .navbar_link {
+    margin: 10px 0;
+}
+
+@media (max-width: 825px) {
+    .navbar_container {
+        justify-content: space-between;
+    }
 }

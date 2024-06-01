@@ -8,7 +8,7 @@ import { GameDetailsLoader } from "../components/Loader";
 
 const GameDetails = () => {
   const { gameId } = useParams();
-  const [game, setGame] = useState([]);
+  const [game, setGame] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -16,7 +16,7 @@ const GameDetails = () => {
     const fetchOneGame = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/games/${gameId}`
+          `${import.meta.env.VITE_API_URL}/api/games/${gameId}`
         );
         setGame(response.data);
         setLoading(false);

@@ -4,7 +4,7 @@ import { FaCcPaypal, FaCcStripe, FaCcVisa, FaCcApplePay } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.footerContent}>
+      <div className={styles.footer_content}>
         <div className={styles.payment_icons}>
           <FaCcPaypal />
           <FaCcStripe />
