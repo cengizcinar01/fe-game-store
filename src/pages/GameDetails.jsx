@@ -18,6 +18,19 @@ const GameDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const addToCart = async () => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/add-to-cart`,
+        { gameId },
+        { withCredentials: true }
+      );
+      alert(response.data.message);
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
+
   useEffect(() => {
     const fetchOneGame = async () => {
       try {
@@ -76,7 +89,9 @@ const GameDetails = () => {
             <FaXbox />
           </div>
           {isAuth ? (
-            <button className={styles.cart_btn}>In den Warenkorb</button>
+            <button className={styles.cart_btn} onClick={addToCart}>
+              In den Warenkorb
+            </button>
           ) : (
             <>
               <button className={styles.cart_btn_auth}>In den Warenkorb</button>
