@@ -1,7 +1,9 @@
 import { useState } from "react";
-import styles from "../styles/pages/Games.module.css";
+
 import GameList from "../components/GameList";
 import GameFilter from "../components/GameFilter";
+
+import styles from "../styles/pages/Games.module.css";
 
 const Games = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);

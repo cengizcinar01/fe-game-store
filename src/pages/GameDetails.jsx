@@ -1,10 +1,13 @@
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import axios from "axios";
-import styles from "../styles/pages/GameDetails.module.css";
+import { Link } from "react-router-dom";
 import { FaXbox } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+
 import { GameDetailsLoader } from "../components/Loader";
+
+import styles from "../styles/pages/GameDetails.module.css";
 
 const GameDetails = () => {
   const { gameId } = useParams();

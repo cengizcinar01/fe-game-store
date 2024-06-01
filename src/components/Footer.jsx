@@ -1,5 +1,6 @@
-import styles from "../styles/components/Footer.module.css";
 import { FaCcPaypal, FaCcStripe, FaCcVisa, FaCcApplePay } from "react-icons/fa";
+
+import styles from "../styles/components/Footer.module.css";
 
 const Footer = () => {
   return (

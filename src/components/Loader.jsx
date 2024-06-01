@@ -1,4 +1,5 @@
 import ContentLoader from "react-content-loader";
+
 import styles from "../styles/components/Loader.module.css";
 
 let loaderBackgroundColor = "rgb(23, 23, 23)";

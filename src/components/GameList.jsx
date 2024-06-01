@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+
 import axios from "axios";
 import { Link } from "react-router-dom";
-import styles from "../styles/components/GameList.module.css";
 import { FaXbox } from "react-icons/fa";
 import { VscSettings } from "react-icons/vsc";
+
 import { GameListLoader } from "./Loader";
+
+import styles from "../styles/components/GameList.module.css";
 
 const GameList = ({ toggleFilter }) => {
   const [games, setGames] = useState([]);

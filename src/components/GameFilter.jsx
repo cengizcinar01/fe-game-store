@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+
 import axios from "axios";
-import styles from "../styles/components/GameFilter.module.css";
+
 import { GameFilterLoader } from "./Loader";
+
+import styles from "../styles/components/GameFilter.module.css";
 
 const GameFilter = ({ isFilterOpen, toggleFilter }) => {
   const [genres, setGenres] = useState([]);

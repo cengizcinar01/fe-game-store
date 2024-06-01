@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
-import { FaUserCircle, FaShoppingCart, FaBars } from "react-icons/fa";
-import { IoGameController } from "react-icons/io5";
-import styles from "../styles/components/Navbar.module.css";
 import { useState, useEffect, useRef } from "react";
+
+import { Link } from "react-router-dom";
+import { IoGameController } from "react-icons/io5";
+import { FaUserCircle, FaShoppingCart, FaBars } from "react-icons/fa";
+
+import styles from "../styles/components/Navbar.module.css";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
