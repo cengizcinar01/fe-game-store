@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
 
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { FaXbox } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 import { GameDetailsLoader } from "../components/Loader";
 
 import styles from "../styles/pages/GameDetails.module.css";
 
 const GameDetails = () => {
+  const { isAuth } = useSelector((state) => state.auth);
   const { gameId } = useParams();
   const [game, setGame] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -54,7 +57,7 @@ const GameDetails = () => {
     <>
       <div className={styles.breadcrumb_container}>
         <span>
-          <Link to="/games">Games</Link> / {game.title}
+          <NavLink to="/games">Games</NavLink> / {game.title}
         </span>
       </div>
       <div className={styles.container}>
@@ -72,7 +75,17 @@ const GameDetails = () => {
             Verfügbar für
             <FaXbox />
           </div>
-          <button className={styles.cart_btn}>In den Warenkorb</button>
+          {isAuth ? (
+            <button className={styles.cart_btn}>In den Warenkorb</button>
+          ) : (
+            <>
+              <button className={styles.cart_btn_auth}>In den Warenkorb</button>
+
+              <NavLink className={styles.nav_link} to="/login">
+                Logge dich ein, um zu bestellen <FaArrowRight />
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </>
