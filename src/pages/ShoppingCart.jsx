@@ -42,6 +42,21 @@ const ShoppingCart = () => {
     }
   };
 
+  const completeOrder = async () => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/complete-order`,
+        {},
+        { withCredentials: true }
+      );
+      alert(response.data.message);
+      setCartItems([]);
+    } catch (error) {
+      console.error(error);
+      alert("Fehler beim Abschließen der Bestellung");
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -69,16 +84,18 @@ const ShoppingCart = () => {
                 <p>{item.genre}</p>
                 <p>{item.price} €</p>
                 <p>{item.description}</p>
-                <button
-                  className={styles.removeCartBtn}
-                  onClick={() => removeFromCart(item.key_id)}
-                >
+                <button onClick={() => removeFromCart(item.key_id)}>
                   Entfernen
                 </button>
               </div>
             </li>
           ))}
         </ul>
+      )}
+      {cartItems.length > 0 && (
+        <button className={styles.completeOrderBtn} onClick={completeOrder}>
+          Bestellung abschließen
+        </button>
       )}
       <NavLink to="/games" className={styles.navLink}>
         Weiter einkaufen

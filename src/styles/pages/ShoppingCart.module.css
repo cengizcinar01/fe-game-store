@@ -49,3 +49,16 @@
 .navLink:hover {
     text-decoration: underline;
 }
+
+.completeOrderBtn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.completeOrderBtn:hover {
+    background-color: #218838;
+}
