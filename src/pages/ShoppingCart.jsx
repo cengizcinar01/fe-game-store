@@ -70,7 +70,9 @@ const ShoppingCart = () => {
       <h1 className={styles.heading}>Warenkorb</h1>
       {cartItems.length === 0 ? (
         <>
-          <p className={styles.emptyCart}>Ihr Warenkorb ist leer.</p>
+          <p className={styles.emptyCart} style={{ paddingBottom: "15px" }}>
+            Ihr Warenkorb ist leer.
+          </p>
           <NavLink to="/games" className={styles.navLink}>
             Weiter einkaufen
           </NavLink>
