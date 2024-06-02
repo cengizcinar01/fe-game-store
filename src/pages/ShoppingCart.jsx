@@ -58,48 +58,56 @@ const ShoppingCart = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className={styles.loadingContainer}>Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div className={styles.errorContainer}>Error: {error.message}</div>;
   }
 
   return (
     <div className={styles.cartContainer}>
-      <h1>Warenkorb</h1>
+      <h1 className={styles.heading}>Warenkorb</h1>
       {cartItems.length === 0 ? (
-        <p>Ihr Warenkorb ist leer.</p>
+        <>
+          <p className={styles.emptyCart}>Ihr Warenkorb ist leer.</p>
+          <NavLink to="/games" className={styles.navLink}>
+            Weiter einkaufen
+          </NavLink>
+        </>
       ) : (
-        <ul>
-          {cartItems.map((item) => (
-            <li key={item.key_id} className={styles.cartItem}>
-              <img
-                src={item.main_game_image}
-                alt={item.title}
-                className={styles.gameImage}
-              />
-              <div className={styles.gameDetails}>
-                <h2>{item.title}</h2>
-                <p>{item.genre}</p>
-                <p>{item.price} €</p>
-                <p>{item.description}</p>
-                <button onClick={() => removeFromCart(item.key_id)}>
-                  Entfernen
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div>
+          <ul className={styles.cartList}>
+            {cartItems.map((item) => (
+              <li key={item.key_id} className={styles.cartItem}>
+                <img
+                  src={item.main_game_image}
+                  alt={item.title}
+                  className={styles.gameImage}
+                />
+                <div className={styles.gameDetails}>
+                  <h2 className={styles.gameTitle}>{item.title}</h2>
+                  <p className={styles.gamePrice}>{item.price} €</p>
+                  <button
+                    className={styles.removeCartBtn}
+                    onClick={() => removeFromCart(item.key_id)}
+                  >
+                    Entfernen
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className={styles.cartActions}>
+            <button className={styles.completeOrderBtn} onClick={completeOrder}>
+              Bestellung abschließen
+            </button>
+            <NavLink to="/games" className={styles.navLink}>
+              Weiter einkaufen
+            </NavLink>
+          </div>
+        </div>
       )}
-      {cartItems.length > 0 && (
-        <button className={styles.completeOrderBtn} onClick={completeOrder}>
-          Bestellung abschließen
-        </button>
-      )}
-      <NavLink to="/games" className={styles.navLink}>
-        Weiter einkaufen
-      </NavLink>
     </div>
   );
 };
