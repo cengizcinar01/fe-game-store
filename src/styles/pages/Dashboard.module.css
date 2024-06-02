@@ -1,0 +1,67 @@
+.dashboardContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.heading {
+    font-size: 32px;
+    color: #a3a3a3;
+    margin-bottom: 20px;
+}
+
+.logoutButton {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.subheading {
+    font-size: 24px;
+    color: #a3a3a3;
+    margin-bottom: 10px;
+}
+
+.orderedKeysList {
+    list-style: none;
+    padding: 0;
+}
+
+.orderedKey {
+    background-color: var(--first-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gameTitle {
+    font-size: 20px;
+    color: #ababab;
+    margin-bottom: 10px;
+}
+
+.gamePrice,
+.gameKey {
+    font-size: 14px;
+    color: #ababab;
+    margin-bottom: 5px;
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.protectedData {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+}
