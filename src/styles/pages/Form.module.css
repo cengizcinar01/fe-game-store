@@ -1,0 +1,75 @@
+
+.loginForm,
+.registerForm {
+    background-color: var(--first-color);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+
+    .loginForm,
+    .registerForm {
+        padding: 20px;
+    }
+}
+
+.loginTitle,
+.registerTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.inputGroup {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: black;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #6c63ff;
+}
+
+.errorMessage {
+    color: #ff4d4f;
+    margin: 10px 0;
+}
+
+.successMessage {
+    color: #4caf50;
+    margin: 10px 0;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 12px;
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #5a52d9;
+}

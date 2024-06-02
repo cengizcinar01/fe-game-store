@@ -1,6 +1,6 @@
 import { useState } from "react";
-
 import { onRegistration } from "../api/auth";
+import styles from "../styles/pages/Form.module.css";
 
 const Register = () => {
   const [values, setValues] = useState({
@@ -28,42 +28,48 @@ const Register = () => {
   };
 
   return (
-    <>
-      <form onSubmit={(e) => onSubmit(e)}>
-        <h1>Register</h1>
+    <form className={styles.registerForm} onSubmit={(e) => onSubmit(e)}>
+      <h1 className={styles.registerTitle}>Register</h1>
 
-        <div>
-          <label htmlFor="email">Email address</label>
-          <input
-            onChange={(e) => onChange(e)}
-            type="email"
-            id="email"
-            name="email"
-            value={values.email}
-            placeholder="example@mail.com"
-            required
-          />
-        </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label} htmlFor="email">
+          Email address
+        </label>
+        <input
+          className={styles.input}
+          onChange={(e) => onChange(e)}
+          type="email"
+          id="email"
+          name="email"
+          value={values.email}
+          placeholder="example@mail.com"
+          required
+        />
+      </div>
 
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            onChange={(e) => onChange(e)}
-            type="password"
-            value={values.password}
-            id="password"
-            name="password"
-            placeholder="Password"
-            required
-          />
-        </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label} htmlFor="password">
+          Password
+        </label>
+        <input
+          className={styles.input}
+          onChange={(e) => onChange(e)}
+          type="password"
+          value={values.password}
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+      </div>
 
-        <div style={{ color: "red", margin: "10px 0" }}>{error}</div>
-        <div style={{ color: "green", margin: "10px 0" }}>{success}</div>
+      {error && <div className={styles.errorMessage}>{error}</div>}
+      {success && <div className={styles.successMessage}>{success}</div>}
 
-        <button type="submit">Submit</button>
-      </form>
-    </>
+      <button className={styles.submitButton} type="submit">
+        Submit
+      </button>
+    </form>
   );
 };
 

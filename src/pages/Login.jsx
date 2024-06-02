@@ -1,10 +1,8 @@
 import { useState } from "react";
-
 import { useDispatch } from "react-redux";
-
 import { onLogin } from "../api/auth";
-
 import { authenticateUser } from "../redux/slices/authSlice";
+import styles from "../styles/pages/Form.module.css";
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -32,41 +30,47 @@ const Login = () => {
   };
 
   return (
-    <>
-      <form onSubmit={(e) => onSubmit(e)}>
-        <h1>Login</h1>
+    <form className={styles.loginForm} onSubmit={(e) => onSubmit(e)}>
+      <h1 className={styles.loginTitle}>Login</h1>
 
-        <div>
-          <label htmlFor="email">Email address</label>
-          <input
-            onChange={(e) => onChange(e)}
-            type="email"
-            id="email"
-            name="email"
-            value={values.email}
-            placeholder="example@mail.com"
-            required
-          />
-        </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label} htmlFor="email">
+          Email address
+        </label>
+        <input
+          className={styles.input}
+          onChange={(e) => onChange(e)}
+          type="email"
+          id="email"
+          name="email"
+          value={values.email}
+          placeholder="example@mail.com"
+          required
+        />
+      </div>
 
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            onChange={(e) => onChange(e)}
-            type="password"
-            value={values.password}
-            id="password"
-            name="password"
-            placeholder="Password"
-            required
-          />
-        </div>
+      <div className={styles.inputGroup}>
+        <label className={styles.label} htmlFor="password">
+          Password
+        </label>
+        <input
+          className={styles.input}
+          onChange={(e) => onChange(e)}
+          type="password"
+          value={values.password}
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+      </div>
 
-        <div style={{ color: "red", margin: "10px 0" }}>{error}</div>
+      {error && <div className={styles.errorMessage}>{error}</div>}
 
-        <button type="submit">Submit</button>
-      </form>
-    </>
+      <button className={styles.submitButton} type="submit">
+        Submit
+      </button>
+    </form>
   );
 };
 
