@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { onLogin } from "../api/auth";
 import { authenticateUser } from "../redux/slices/authSlice";
 import styles from "../styles/pages/Form.module.css";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -70,6 +71,12 @@ const Login = () => {
       <button className={styles.submitButton} type="submit">
         Submit
       </button>
+      <NavLink
+        to="/register"
+        style={{ marginTop: "15px", textAlign: "center", display: "block" }}
+      >
+        Register
+      </NavLink>
     </form>
   );
 };

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { onRegistration } from "../api/auth";
 import styles from "../styles/pages/Form.module.css";
+import { NavLink } from "react-router-dom";
 
 const Register = () => {
   const [values, setValues] = useState({
@@ -69,6 +70,12 @@ const Register = () => {
       <button className={styles.submitButton} type="submit">
         Submit
       </button>
+      <NavLink
+        to="/login"
+        style={{ marginTop: "15px", textAlign: "center", display: "block" }}
+      >
+        Login
+      </NavLink>
     </form>
   );
 };
