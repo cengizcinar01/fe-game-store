@@ -51,7 +51,7 @@ const ShoppingCart = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.cartContainer}>
       <h1>Warenkorb</h1>
       {cartItems.length === 0 ? (
         <p>Ihr Warenkorb ist leer.</p>
@@ -62,14 +62,17 @@ const ShoppingCart = () => {
               <img
                 src={item.main_game_image}
                 alt={item.title}
-                className={styles.image}
+                className={styles.gameImage}
               />
-              <div className={styles.details}>
+              <div className={styles.gameDetails}>
                 <h2>{item.title}</h2>
                 <p>{item.genre}</p>
                 <p>{item.price} €</p>
                 <p>{item.description}</p>
-                <button onClick={() => removeFromCart(item.key_id)}>
+                <button
+                  className={styles.removeCartBtn}
+                  onClick={() => removeFromCart(item.key_id)}
+                >
                   Entfernen
                 </button>
               </div>

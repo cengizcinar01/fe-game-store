@@ -1,4 +1,4 @@
-.container {
+.cartContainer {
     padding: 20px;
 }
 
@@ -7,27 +7,27 @@
     margin-bottom: 20px;
 }
 
-.image {
+.gameImage {
     width: 150px;
     height: 150px;
     object-fit: cover;
     margin-right: 20px;
 }
 
-.details {
+.gameDetails {
     flex: 1;
 }
 
-.details h2 {
+.gameDetails h2 {
     margin: 0;
     font-size: 1.5rem;
 }
 
-.details p {
+.gameDetails p {
     margin: 5px 0;
 }
 
-button {
+.removeCartBtn {
     background-color: #ff0000;
     color: #fff;
     border: none;
@@ -35,7 +35,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.removeCartBtn:hover {
     background-color: #cc0000;
 }
 

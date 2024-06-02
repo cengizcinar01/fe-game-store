@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IoGameController } from "react-icons/io5";
 import { FaUserCircle, FaShoppingCart, FaBars } from "react-icons/fa";
 
@@ -35,29 +35,33 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar_container}>
       <div className={styles.navbar_left}>
-        <Link to="/" className={styles.navbar_logo}>
+        <NavLink to="/" className={styles.navbar_logo}>
           <IoGameController className={styles.navbar_game_icon} />
           <span>GAME STORE</span>
-        </Link>
+        </NavLink>
       </div>
       <div className={styles.navbar_right}>
         <div className={styles.navbar_right_icons}>
-          <FaShoppingCart className={styles.navbar_cart_icon} />
-          <FaUserCircle className={styles.navbar_user_icon} />
+          <NavLink to="cart">
+            <FaShoppingCart className={styles.navbar_cart_icon} />
+          </NavLink>
+          <NavLink to="dashboard">
+            <FaUserCircle className={styles.navbar_user_icon} />
+          </NavLink>
           <FaBars className={styles.navbar_menu_icon} onClick={toggleMenu} />
         </div>
         {menuOpen && (
           <div className={styles.navbar_menu} ref={menuRef}>
-            <Link to="/" className={styles.navbar_link} onClick={toggleMenu}>
+            <NavLink to="/" className={styles.navbar_link} onClick={toggleMenu}>
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/games"
               className={styles.navbar_link}
               onClick={toggleMenu}
             >
               Games
-            </Link>
+            </NavLink>
           </div>
         )}
       </div>

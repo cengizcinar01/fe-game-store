@@ -43,6 +43,10 @@ const router = createBrowserRouter([
             path: "dashboard",
             element: <Dashboard />,
           },
+          {
+            path: "cart",
+            element: <ShoppingCart />,
+          },
         ],
       },
       {
@@ -68,15 +72,6 @@ const router = createBrowserRouter([
           {
             path: ":gameId",
             element: <GameDetails />,
-          },
-        ],
-      },
-      {
-        path: "cart",
-        children: [
-          {
-            index: true,
-            element: <ShoppingCart />,
           },
         ],
       },
