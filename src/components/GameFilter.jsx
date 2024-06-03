@@ -8,6 +8,7 @@ const GameFilter = ({
   toggleFilter,
   filterCriteria,
   setFilterCriteria,
+  gameCount,
 }) => {
   const [genres, setGenres] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +23,6 @@ const GameFilter = ({
         setGenres(response.data.genres);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching genres:", error);
         setError(error);
         setLoading(false);
       }
@@ -118,6 +118,7 @@ const GameFilter = ({
               />
             </label>
           ))}
+          <p className={styles.game_count}>{gameCount} Spiele gefunden</p>
         </div>
       </div>
     </>
