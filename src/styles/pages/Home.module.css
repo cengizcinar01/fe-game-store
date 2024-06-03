@@ -1,0 +1,81 @@
+.hero {
+    text-align: center;
+    background: url('/path/to/your/hero-image.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 0 0 30px 0;
+}
+
+.title {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.cta {
+    margin-top: 20px;
+    background-color: #ff4500;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+    background-color: #e03e00;
+}
+
+.sectionTitle {
+    font-size: 2em;
+    margin: 40px 0 20px;
+    text-align: center;
+}
+
+.featured,
+.newsletter {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 0 20px;
+}
+
+.gameGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.newsletterText {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.newsletterForm {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.newsletterInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.newsletterButton {
+    background-color: #ff4500;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletterButton:hover {
+    background-color: #e03e00;
+}
