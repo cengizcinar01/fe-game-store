@@ -118,7 +118,6 @@ const GameFilter = ({
               />
             </label>
           ))}
-          <p className={styles.game_count}>X Spiele gefunden</p>
         </div>
       </div>
     </>
