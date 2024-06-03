@@ -17,7 +17,7 @@
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     font-size: 1.2em;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -29,23 +29,16 @@
 
 .sectionTitle {
     font-size: 2em;
-    margin: 40px 0 20px;
+    margin: 40px 0 40px;
     text-align: center;
 }
 
 .featured,
 .newsletter {
     padding: 20px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 0 0 20px;
-}
-
-.gameGrid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    margin: 0 120px 20px;
 }
 
 .newsletterText {
@@ -62,7 +55,7 @@
 .newsletterInput {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     width: 300px;
 }
 
@@ -71,7 +64,7 @@
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }

@@ -1,4 +1,5 @@
 import styles from "../styles/pages/Home.module.css";
+import GameList from "../components/GameList";
 
 const Home = () => {
   return (
@@ -10,7 +11,7 @@ const Home = () => {
 
       <section className={styles.featured}>
         <h2 className={styles.sectionTitle}>Featured Games</h2>
-        <div className={styles.gameGrid}></div>
+        <GameList maxGames={4} hideFilterIcon={true} />
       </section>
 
       <section className={styles.newsletter}>
