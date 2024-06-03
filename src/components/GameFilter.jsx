@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-
 import axios from "axios";
-
 import { GameFilterLoader } from "./Loader";
-
 import styles from "../styles/components/GameFilter.module.css";
 
-const GameFilter = ({ isFilterOpen, toggleFilter }) => {
+const GameFilter = ({
+  isFilterOpen,
+  toggleFilter,
+  filterCriteria,
+  setFilterCriteria,
+}) => {
   const [genres, setGenres] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -20,6 +22,7 @@ const GameFilter = ({ isFilterOpen, toggleFilter }) => {
         setGenres(response.data.genres);
         setLoading(false);
       } catch (error) {
+        console.error("Error fetching genres:", error);
         setError(error);
         setLoading(false);
       }
@@ -27,6 +30,21 @@ const GameFilter = ({ isFilterOpen, toggleFilter }) => {
 
     fetchGenres();
   }, []);
+
+  const handleSearchChange = (e) => {
+    setFilterCriteria({ ...filterCriteria, search: e.target.value });
+  };
+
+  const handleSortChange = (e) => {
+    setFilterCriteria({ ...filterCriteria, sort: e.target.value });
+  };
+
+  const handleGenreChange = (genre) => {
+    const newGenres = filterCriteria.genres.includes(genre)
+      ? filterCriteria.genres.filter((g) => g !== genre)
+      : [...filterCriteria.genres, genre];
+    setFilterCriteria({ ...filterCriteria, genres: newGenres });
+  };
 
   if (loading) {
     return (
@@ -70,11 +88,18 @@ const GameFilter = ({ isFilterOpen, toggleFilter }) => {
             className={styles.search_input}
             type="text"
             placeholder="Spiel suchen..."
+            value={filterCriteria.search}
+            onChange={handleSearchChange}
           />
         </div>
         <div className={styles.select}>
           <span className={styles.sort_text}>Sortieren:</span>
-          <select id="filter-select" className={styles.select_style}>
+          <select
+            id="filter-select"
+            className={styles.select_style}
+            value={filterCriteria.sort}
+            onChange={handleSortChange}
+          >
             <option value="title-asc">Titel: A-Z</option>
             <option value="title-desc">Titel: Z-A</option>
             <option value="price-asc">Preis: Aufsteigend</option>
@@ -85,7 +110,12 @@ const GameFilter = ({ isFilterOpen, toggleFilter }) => {
           {genres.map((genre) => (
             <label key={genre} className={styles.genre_label}>
               <span className={styles.genre_text}>{genre}</span>
-              <input type="checkbox" className={styles.genre_checkbox} />
+              <input
+                type="checkbox"
+                className={styles.genre_checkbox}
+                checked={filterCriteria.genres.includes(genre)}
+                onChange={() => handleGenreChange(genre)}
+              />
             </label>
           ))}
           <p className={styles.game_count}>X Spiele gefunden</p>

@@ -12,6 +12,7 @@ const getRandomGames = (games, max) => {
 };
 
 const GameList = ({
+  filterCriteria = { search: "", sort: "title-asc", genres: [] },
   toggleFilter,
   maxGames = Infinity,
   hideFilterIcon = false,
@@ -42,6 +43,28 @@ const GameList = ({
     fetchAllGames();
   }, [maxGames]);
 
+  const filteredGames = games
+    .filter((game) =>
+      game.title.toLowerCase().includes(filterCriteria.search.toLowerCase())
+    )
+    .filter((game) =>
+      filterCriteria.genres.length > 0
+        ? filterCriteria.genres.includes(game.genre)
+        : true
+    )
+    .sort((a, b) => {
+      if (filterCriteria.sort === "title-asc") {
+        return a.title.localeCompare(b.title);
+      } else if (filterCriteria.sort === "title-desc") {
+        return b.title.localeCompare(a.title);
+      } else if (filterCriteria.sort === "price-asc") {
+        return a.price - b.price;
+      } else if (filterCriteria.sort === "price-desc") {
+        return b.price - a.price;
+      }
+      return 0;
+    });
+
   if (loading) {
     return (
       <div className={styles.games_grid}>
@@ -68,7 +91,7 @@ const GameList = ({
         </div>
       )}
       <div className={styles.games_grid}>
-        {games.map((game) => (
+        {filteredGames.map((game) => (
           <Link to={`/games/${game.game_id}`} key={game.game_id}>
             <div className={styles.game_container}>
               <img
