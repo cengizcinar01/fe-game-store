@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styles from "../styles/pages/Home.module.css";
 import GameList from "../components/GameList";
 
@@ -6,7 +7,9 @@ const Home = () => {
     <>
       <section className={styles.hero}>
         <h1 className={styles.title}>Entdecke die neuesten Spiele</h1>
-        <button className={styles.cta}>Jetzt einkaufen</button>
+        <NavLink to="/games">
+          <button className={styles.cta}>Jetzt einkaufen</button>
+        </NavLink>
       </section>
 
       <section className={styles.featured}>
