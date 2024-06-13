@@ -6,15 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Store</title>
-    <script>
-      const umamiSrc = import.meta.env.VITE_UMAMI_SRC;
-      const umamiWebsiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID;
-
-      const script = document.createElement('script');
-      script.src = umamiSrc;
-      script.setAttribute('data-website-id', umamiWebsiteId);
-      document.head.appendChild(script);
-    </script>
+    <script defer src="%VITE_UMAMI_SRC%" data-website-id="%VITE_UMAMI_WEBSITE_ID%"></script>
   </head>
 
   <body>
